@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TDMPW_412_3P_PR02.MainPage"
+             Title="">
+
+    <Grid x:Name="background">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Offset="0.0" Color="#33FFF9"></GradientStop>
+                <GradientStop Offset="0.23" Color="#0CA2CE"></GradientStop>
+                <GradientStop Offset="0.45" Color="#05A4C4"></GradientStop>
+                <GradientStop Offset="0.78" Color="#027CA0"></GradientStop>
+                <GradientStop Offset="0.88" Color="#02CED1"></GradientStop>
+                <GradientStop Offset="1" Color="#00FBFF"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ScrollView>
+
+            <StackLayout Orientation="Vertical" Spacing="30">
+
+                <HorizontalStackLayout Spacing="200" HorizontalOptions="Center">
+                    <Image Source="imagen1_tarea.png" HeightRequest="140"/>
+
+                    <Label Text="To do List" HorizontalTextAlignment="Center" FontSize="Header" VerticalTextAlignment="Center" FontFamily="say"/>
+
+                    <Image Source="imagen2_tarea.png" HeightRequest="150"/>
+
+                    
+
+                   
+
+                </HorizontalStackLayout>
+
+                <Label  x:Name="txtAdvertencia" Text="Agrega una nueva tarea:" HorizontalTextAlignment="Center" FontSize="Large" FontFamily="hey"/>
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Entry x:Name="txtNewTask" Placeholder="Nueva tarea" BackgroundColor="White" HeightRequest="50" WidthRequest="500" FontFamily="hey" />
+                    <Button x:Name="btnAgregar" Text="Agregar" Clicked="btnAgregar_Clicked" HeightRequest="50" WidthRequest="230" BackgroundColor="Green" FontFamily="hey" />
+                    <Button x:Name="btnEliminar" Text="Eliminar tarea seleccionada" CommandParameter="{Binding .}" Clicked="btnEliminar_Clicked" IsEnabled="False" WidthRequest="230" BackgroundColor="Red" FontFamily="hey"  />
+                </HorizontalStackLayout>
+
+
+                <HorizontalStackLayout Spacing="70" HorizontalOptions="Center">
+                    <Label Text="¿Completado?" FontFamily="hey"/>
+                    <Label Text="Tarea" FontFamily="hey"/>
+                    <Label Text="Estado de la tarea" FontFamily="hey"/>
+                </HorizontalStackLayout>
+
+
+                <HorizontalStackLayout Spacing="30" HorizontalOptions="Center">
+
+                    <ListView x:Name="taskListView" ItemsSource="{Binding Tasks}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <HorizontalStackLayout Spacing="90">
+                                        <CheckBox x:Name="check" CheckedChanged="check_CheckedChanged"/>
+                                        <Label Text="{Binding Title}" FontFamily="hey"/>
+                                        <Label Text="{Binding Completed}" FontFamily="hey"/>
+                                    </HorizontalStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </HorizontalStackLayout>
+
+
+
+            </StackLayout>
+
+        </ScrollView>
+
+       
+
+        
+
+
+
+
+    </Grid>
+
+</ContentPage>
